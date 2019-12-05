@@ -53,6 +53,7 @@ tools:openDrawer="start">
             android:text="@string/submit"
             android:textColor="#00cc00"
             android:visibility="visible"
+            android:onClick="checkAnswer"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.809"

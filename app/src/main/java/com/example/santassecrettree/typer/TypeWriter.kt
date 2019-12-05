@@ -50,7 +50,10 @@ class TypeWriter : TextView {
         this.justificationMode = Layout.JUSTIFICATION_MODE_INTER_WORD
         this.movementMethod = ScrollingMovementMethod()
     }
-
+    fun stopSound() {
+        musicPlayer.pause()
+        musicPlayer.stop()
+    }
     fun animateText(txt: CharSequence) {
         mText = txt
         mIndex = 0
