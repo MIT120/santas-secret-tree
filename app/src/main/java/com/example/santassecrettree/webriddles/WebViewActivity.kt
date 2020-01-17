@@ -4,15 +4,19 @@ import android.Manifest
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.webkit.*
+import android.net.Uri
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.santassecrettree.R
+import com.example.santassecrettree.steganography.Steganography
 
 class WebViewActivity: Activity() {
     private val MY_PERMISSIONS_REQUEST = 100
@@ -38,6 +42,21 @@ class WebViewActivity: Activity() {
         webSettings.setUserAgentString("hcapp")
 
         myWebView.setWebViewClient(object: WebViewClient () {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean
+            {
+                Log.e("baGOQ", (Uri.parse(url).toString() == "http://145.93.137.162:4200/").toString())
+                if(Uri.parse(url).toString() == "http://145.93.137.162:4200/")
+                {
+                    val intent = Intent(this@WebViewActivity, Steganography::class.java)
+                    // To pass any data to next activity
+                    // intent.putExtra("keyIdentifier", value)
+                    // start your next activity
+                    startActivity(intent)
+                    return false
+                }
+                return true
+
+            }
             override fun onReceivedError(
                 webView: WebView,
                 errorCode: Int,
@@ -50,12 +69,12 @@ class WebViewActivity: Activity() {
                 }
 
                 if (webView.canGoBack()) {
-                    webView.goBack();
+                    webView.goBack()
                 }
 
                 webView.loadUrl("http://145.93.137.162:4200/")
             }
-        });
+        })
 
         myWebView.setWebChromeClient(object: WebChromeClient (){
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)

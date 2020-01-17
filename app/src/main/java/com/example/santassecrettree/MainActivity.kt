@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         answerEditText = this.findViewById(R.id.edit_answer)
         tw = findViewById(R.id.tv)
         tw.text = ""
-        tw.setCharacterDelay(50)
+        tw.setCharacterDelay(5)
         tw.animateText(
             Html.fromHtml(("<p><font color='@color/colorText'>\n" +
                     "You stop falling through time, catch your breath, and check the screen on the device. Destination reached. Current Year: 1518. Current Location: North Pole Utility Closet 83N10. You made it! Now, to find those anomalies."+
