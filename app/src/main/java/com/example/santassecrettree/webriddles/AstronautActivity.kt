@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat
 import com.example.santassecrettree.R
 import com.example.santassecrettree.steganography.Steganography
 
-class WebViewActivity: Activity() {
+class AstronautActivity: Activity() {
     private val MY_PERMISSIONS_REQUEST = 100
 
 
@@ -41,24 +41,16 @@ class WebViewActivity: Activity() {
         myWebView.setWebViewClient(object: WebViewClient () {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean
             {
-                if(Uri.parse(url).toString() == "http://i358717.hera.fhict.nl/poca/index.html") {
-                    val intent = Intent(this@WebViewActivity, AudioActivity::class.java)
+                Log.e("baGOQ", (Uri.parse(url).toString() == "http://igreedy.club/").toString())
+                if(Uri.parse(url).toString() == "http://igreedy.club/")
+                {
+                    val intent = Intent(this@AstronautActivity, Steganography::class.java)
                     // To pass any data to next activity
                     // intent.putExtra("keyIdentifier", value)
                     // start your next activity
                     startActivity(intent)
                     return false
                 }
-                Log.e("baGOQ", (Uri.parse(url).toString() == "http://145.93.137.147:4200/").toString())
-//                if(Uri.parse(url).toString() == "http://145.93.137.162:4200/")
-//                {
-//                    val intent = Intent(this@WebViewActivity, Steganography::class.java)
-//                    // To pass any data to next activity
-//                    // intent.putExtra("keyIdentifier", value)
-//                    // start your next activity
-//                    startActivity(intent)
-//                    return false
-//                }
                 return true
 
             }
@@ -75,7 +67,7 @@ class WebViewActivity: Activity() {
                 if (webView.canGoBack()) {
                     webView.goBack()
                 }
-                webView.loadUrl("http://145.93.137.147:4200/")
+                webView.loadUrl("http://igreedy.club/")
             }
         })
         myWebView.setWebChromeClient(object: WebChromeClient (){
@@ -120,8 +112,8 @@ class WebViewActivity: Activity() {
 
             }
         }
-        setContentView(myWebView);
-        myWebView.loadUrl("http://145.93.137.162:4200/")
+        setContentView(myWebView)
+        myWebView.loadUrl("http://igreedy.club/")
     }
 //    private lateinit var webView: WebView
 

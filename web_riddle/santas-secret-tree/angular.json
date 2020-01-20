@@ -29,7 +29,25 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "./src/JS/bootstrap.min.js",
+              "./src/JS/imagesloaded.pkgd.min.js",
+              "./src/JS/isotope.pkgd.min.js",
+              "./src/JS/jarallax-video.min.js",
+              "./src/JS/jarallax.min.js",
+              "./src/JS/jquery.easing.min.js",
+              "./src/JS/owl.carousel.min.js",
+              "./src/JS/poca.bundle.js",
+              "./src/JS/waypoints.min.js",
+              "./src/JS/wow.min.js",
+              "./src/JS/default-assets/active.js",
+              "./src/JS/default-assets/audioplayer.js",
+              "./src/JS/default-assets/avoid.console.error.js",
+              "./src/JS/default-assets/classynav.js",
+              "./src/JS/default-assets/jquery.scrollup.min.js"
+
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

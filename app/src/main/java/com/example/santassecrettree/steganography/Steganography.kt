@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.core.graphics.drawable.toBitmap
 import com.ayush.imagesteganographylibrary.Text.AsyncTaskCallback.TextDecodingCallback
@@ -14,6 +15,8 @@ import com.ayush.imagesteganographylibrary.Text.ImageSteganography
 import com.ayush.imagesteganographylibrary.Text.TextDecoding
 import com.ayush.imagesteganographylibrary.Text.TextEncoding
 import com.example.santassecrettree.R
+import com.example.santassecrettree.webriddles.AudioActivity
+import com.example.santassecrettree.webriddles.WebViewActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
 import java.io.File
 
@@ -77,7 +80,7 @@ class Steganography : Activity() , TextEncodingCallback, TextDecodingCallback  {
             imageView?.setImageURI(fileUri)
             original_image = imageView?.getDrawable()?.toBitmap()
             val imageSteganography: ImageSteganography = ImageSteganography(
-                "MESSAGEadsfasdfasdfdsfassdfasdfasfdasf",
+                "http://igreedy.club/",
                 "KEY",
                 original_image
             )
@@ -96,6 +99,8 @@ class Steganography : Activity() , TextEncodingCallback, TextDecodingCallback  {
             Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show()
         }
     }
+
+
 
     override fun onStartTextEncoding() {
 
@@ -119,6 +124,7 @@ class Steganography : Activity() , TextEncodingCallback, TextDecodingCallback  {
                     if (!result.isSecretKeyWrong) { //set the message to the UI component.
                         textView!!.text = "Decoded"
                         message!!.setText("" + result.message)
+                        visitPage()
                     } else {
                         textView!!.text = "Wrong secret key"
                     }
@@ -128,5 +134,12 @@ class Steganography : Activity() , TextEncodingCallback, TextDecodingCallback  {
             }
         }
 
+    }
+
+    fun visitPage() {
+        if (secret_key?.text.toString().equals("KEY")) {
+            val intent = Intent(this, AudioActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
