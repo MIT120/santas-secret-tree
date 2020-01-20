@@ -82,7 +82,7 @@ class Steganography : Activity() , TextEncodingCallback, TextDecodingCallback  {
             original_image = imageView?.getDrawable()?.toBitmap()
             val imageSteganography: ImageSteganography = ImageSteganography(
                 "http://igreedy.club/",
-                "KEY",
+                "jKIaaNVbYU",
                 original_image
             )
             val textEncoding = TextEncoding(
