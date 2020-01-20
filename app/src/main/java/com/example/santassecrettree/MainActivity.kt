@@ -380,7 +380,6 @@ class MainActivity : AppCompatActivity() {
             // start your next activity
             tw.stopSound()
             startActivity(intent)
-            Log.e("SUBMITEDED", "KAKVO")
         }
     }
 

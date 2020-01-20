@@ -12,6 +12,13 @@
         android:theme="@style/AppTheme"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
+        <activity android:name=".qrcode.QrCodeScannerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,13 +48,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".webriddles.AstronautActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".qrcode.QrCodeScannerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

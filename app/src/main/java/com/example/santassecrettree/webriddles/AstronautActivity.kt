@@ -13,6 +13,7 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.santassecrettree.R
+import com.example.santassecrettree.qrcode.QrCodeScannerActivity
 import com.example.santassecrettree.steganography.Steganography
 
 class AstronautActivity: Activity() {
@@ -41,13 +42,10 @@ class AstronautActivity: Activity() {
         myWebView.setWebViewClient(object: WebViewClient () {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean
             {
-                Log.e("baGOQ", (Uri.parse(url).toString() == "http://igreedy.club/").toString())
-                if(Uri.parse(url).toString() == "http://igreedy.club/")
+                Log.e("baGOQ", (Uri.parse(url).toString() == "http://igreedy.club/male.html").toString())
+                if(Uri.parse(url).toString() == "http://igreedy.club/male.html")
                 {
-                    val intent = Intent(this@AstronautActivity, Steganography::class.java)
-                    // To pass any data to next activity
-                    // intent.putExtra("keyIdentifier", value)
-                    // start your next activity
+                    val intent = Intent(this@AstronautActivity, QrCodeScannerActivity::class.java)
                     startActivity(intent)
                     return false
                 }

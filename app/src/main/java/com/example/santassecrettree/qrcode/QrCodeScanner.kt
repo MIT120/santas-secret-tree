@@ -1,19 +1,26 @@
 package com.example.santassecrettree.qrcode
 
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.budiyev.android.codescanner.*
 import com.example.santassecrettree.R
 
 class QrCodeScannerActivity : Activity() {
     private lateinit var codeScanner: CodeScanner
+    private var myClipboard: ClipboardManager? = null
+    private var code: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrcode)
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
-
+        myClipboard = getSystemService(AppCompatActivity.CLIPBOARD_SERVICE) as ClipboardManager?
         codeScanner = CodeScanner(this, scannerView)
 
         // Parameters (default values)
@@ -28,6 +35,7 @@ class QrCodeScannerActivity : Activity() {
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
+                code = it.text
                 Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
             }
         }
@@ -51,5 +59,14 @@ class QrCodeScannerActivity : Activity() {
     override fun onPause() {
         codeScanner.releaseResources()
         super.onPause()
+    }
+
+    // on click copy button
+    fun copyText(view: View) {
+        var clip = ClipData.newPlainText("text", code)
+        Log.e("code", code)
+        myClipboard?.setPrimaryClip(clip)
+
+        Toast.makeText(this, "Text Copied", Toast.LENGTH_SHORT).show()
     }
 }

@@ -15,6 +15,7 @@ import com.ayush.imagesteganographylibrary.Text.ImageSteganography
 import com.ayush.imagesteganographylibrary.Text.TextDecoding
 import com.ayush.imagesteganographylibrary.Text.TextEncoding
 import com.example.santassecrettree.R
+import com.example.santassecrettree.webriddles.AstronautActivity
 import com.example.santassecrettree.webriddles.AudioActivity
 import com.example.santassecrettree.webriddles.WebViewActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -138,7 +139,7 @@ class Steganography : Activity() , TextEncodingCallback, TextDecodingCallback  {
 
     fun visitPage() {
         if (secret_key?.text.toString().equals("KEY")) {
-            val intent = Intent(this, AudioActivity::class.java)
+            val intent = Intent(this, AstronautActivity::class.java)
             startActivity(intent)
         }
     }
