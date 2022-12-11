@@ -22,7 +22,7 @@
     "@types/jquery": "^3.3.31",
     "@types/socket.io": "^2.1.4",
     "core-js": "^2.5.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.4.1",
     "ngx-socket-io": "^2.1.1",
     "play-sound": "^1.1.3",
